@@ -14,6 +14,7 @@ let gameInterval;
 
 // Esconder elementos desnecessários antes do jogo começar
 canvas.style.display = "none";
+scoreDisplay.style.display = "none"
 
 // Função para gerar posição aleatória
 function getRandomPosition() {
@@ -96,6 +97,7 @@ function updateGame() {
         gameOver.style.display = "block";
         canvas.style.display = "none";
         startButton.style.display = "block";
+        scoreDisplay.style.display = "block"
         return;
         
     }
