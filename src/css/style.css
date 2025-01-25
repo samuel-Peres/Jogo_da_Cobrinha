@@ -21,6 +21,7 @@ h1 {
     font-size: 20px;
     position: relative;
     margin: 0px;
+    top: 0px;
     left: 240px;
     border: 2px solid black;
 }
@@ -35,19 +36,25 @@ canvas {
 }
 
 .controles {
-    display: flex;
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 50px;
     flex-direction: column; /* Alinha em coluna */
     align-items: center; /* Centraliza horizontalmente */
     justify-content: center; /* Centraliza verticalmente */
-    gap: 10px; /* Espaçamento entre as linhas */
+    gap: 30px; /* Espaçamento entre as linhas */
 }
 
 .linha {
     display: flex; /* Define linha horizontal */
     align-items: center; /* Alinha verticalmente */
-    gap: 10px; /* Espaçamento entre os botões */
+    gap: 30px; /* Espaçamento entre os botões */
   }
 
+.controles button{
+    font-size: 24px;
+}
 
 
 button {
@@ -64,3 +71,14 @@ button {
     font-size: 24px;
     color: red;
 }
+
+@media screen and (max-width: 700px) {
+    .controles{
+        display: block;
+    }
+    canvas {
+        max-width: 100%; /* Canvas ocupa toda a largura disponível */
+        border-width: 1px; /* Borda mais fina em telas menores */
+    }
+}
+

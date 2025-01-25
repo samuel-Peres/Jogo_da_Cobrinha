@@ -3,10 +3,10 @@ const ctx = canvas.getContext("2d");
 const gameOver = document.getElementById("GameOver");
 const startButton = document.getElementById("startButton");
 const scoreDisplay = document.getElementById("scoreDisplay");
-const Direita = document.getElementById("direita")
-const Esconder = document.getElementById("esquerda")
-const ParaBaixo = document.getElementById("paraBaixo")
-const ParaCima = document.getElementById("parCima")
+const Direita = document.getElementById("direita");
+const Esconder = document.getElementById("esquerda");
+const ParaBaixo = document.getElementById("paraBaixo");
+const ParaCima = document.getElementById("parCima");
 const Controle = document.getElementById("controle")
 
 
@@ -21,6 +21,8 @@ let gameInterval;
 // Esconder elementos desnecessários antes do jogo começar
 canvas.style.display = "none";
 scoreDisplay.style.display = "none";
+Controle.style.visibility = "hidden"
+
 
 // Função para gerar posição aleatória
 function getRandomPosition() {
@@ -124,7 +126,7 @@ function updateGame() {
         canvas.style.display = "none";
         startButton.style.display = "block";
         scoreDisplay.style.display = "block";
-        Controle.style.display = "none";
+        Controle.style.visibility = "hidden"
         return;
         
     }
@@ -133,14 +135,18 @@ function updateGame() {
     drawFood();
     updateSnake();
     drawSnake();
-}
+
+    
+};
+
 
 // Iniciar o jogo ao clicar no botão
 startButton.addEventListener("click", () => {
+    Controle.style.visibility = "visible"
+    scoreDisplay.style.display = "block";
     startButton.style.display = "none"; // Esconder o botão de início
     canvas.style.display = "block"; // Mostrar o canvas
     gameOver.style.display = "none"; // Esconder a mensagem de Game Over
-    Controle.style.display = "block";
     pontuação = 0; // Reiniciar a pontuação
     scoreDisplay.innerText = `Pontuação: ${pontuação}`;
     snake = [{ x: boxSize * 11, y: boxSize * 6 }]; // Reiniciar a cobra
